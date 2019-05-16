@@ -31,3 +31,7 @@ Route::get('/easyFundRaising', ['as' => 'easyFundRaising', 'uses' => 'TempleCont
 Route::get('/templeExtension', ['as' => 'templeExtension', 'uses' => 'TempleController@templeExtension']);
 Route::get('/contact', ['as' => 'contact', 'uses' => 'TempleController@create']);
 Route::post('/contact', ['as' => 'contact.store', 'uses' => 'TempleController@store']);
+
+Route::get('/image-view','ImageController@index');
+Route::post('/image-view','ImageController@store');
+//Route::get('viewImage','ImageController@create');
