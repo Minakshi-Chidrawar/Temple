@@ -68,27 +68,21 @@
         <hr class="clearfix w-100 d-md-none">
 
         <!-- Grid column -->
-        <div class="col-md-2 col-lg-2 text-center mx-auto my-4">
-
+        <div class="col-md-3 my-4">
           <!-- Social buttons -->
           <h5 class="font-weight-bold text-uppercase mb-4">Follow Us</h5>
-          <div class="row"> 
-            <!-- Facebook -->
-            <a href="https://www.facebook.com/adhyashakti.mataji">
-              <span class="fa fa-facebook fa-2x"></span>
-            </a>
-            <!-- Twitter -->
-            <a href="https://twitter.com/Matajitempleuk">
-              <span class="fa fa-twitter fa-2x"></span>
-            </a>
-            <!-- Wordpress -->
-            <a href="https://adhyashaktimatajitemple.wordpress.com">
-              <span class="fa fa-wordpress fa-2x"></span>
-            </a>
-            <!-- Contact -->
-            <!-- <a href="https://adhyashaktimatajitemple.wordpress.com">
-              <span class="fa fa-envelope fa-1x"></span>
-            </a> -->
+          <div class="row">
+            <div class="icon-bar">
+              <a href="https://www.facebook.com/adhyashakti.mataji" class="facebook">
+                <i class="fa fa-2x fa-facebook-square"></i>
+              </a>
+              <a href="https://twitter.com/Matajitempleuk" class="twitter">
+                <i class="fa fa-2x fa-twitter-square"></i>
+              </a>
+              <a href="https://adhyashaktimatajitemple.wordpress.com" class="wordpress">
+                <i class="fa fa-2x fa-wordpress"></i>
+              </a>
+            </div>
           </div>
         </div>
         <!-- Grid column -->
