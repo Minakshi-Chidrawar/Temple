@@ -2,26 +2,24 @@
   html, body {
     background-color: #e9b6bb;
     color: #636b6f;
-    font-family: 'Lobster', cursive;
-    /* font-weight: bold; */
+    font-family: 'Vollkorn', serif;
     margin: 0;
-    /* letter-spacing: 0.1em; */
 }
 
 .carousel-img {
-    height: 500px;
+    height: 600px;
 }
 
 h2 {
   color: #721c24;
-  font-family: 'Roboto', cursive;
+  font-family: 'Cardo', serif;;
   letter-spacing: normal !important;
 }
 
 p {
   color: #721c24;
   font-family: 'Roboto', cursive;
-  font-size: 14.5px;
+  font-size: 98%;
   font-weight: initial !important;
   letter-spacing: normal !important;
 }
