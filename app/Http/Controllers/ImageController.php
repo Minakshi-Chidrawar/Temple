@@ -18,6 +18,13 @@ class ImageController extends Controller
 
     public function store(Request $request)
     {
+        if($request->hasFile('image'))
+        {
+            Image::create([
+                'name' => $request->file('image')->store('uploads', 'public'),
+                'album_id' => 1
+            ]);
+        }
         // $path = public_path() . '/upload/' . Carbon::now()->isoFormat("DDMMYYYY") . '/';   
    
         // if(!File::isDirectory($path)){
