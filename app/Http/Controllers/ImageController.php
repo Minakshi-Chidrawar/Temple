@@ -12,8 +12,9 @@ class ImageController extends Controller
 {
     public function index()
     {
-        // return view('image.image-view');
-        return view('gallery.home');
+        $images = Image::get();
+
+        return view('gallery.home', compact('images'));
     }
 
     public function store(Request $request)
