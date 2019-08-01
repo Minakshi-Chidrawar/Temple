@@ -21,10 +21,14 @@ class ImageController extends Controller
     {
         if($request->hasFile('image'))
         {
-            Image::create([
-                'name' => $request->file('image')->store('uploads', 'public'),
-                'album_id' => 1
-            ]);
+            foreach ($request->file('image') as $image)
+            {
+                $path = $image->store('uploads', 'public');
+                Image::create([
+                    'name' => $path,
+                    'album_id' => 1
+                ]);
+            }
         }
         // $path = public_path() . '/upload/' . Carbon::now()->isoFormat("DDMMYYYY") . '/';   
    
