@@ -19,6 +19,10 @@ class ImageController extends Controller
 
     public function store(Request $request)
     {
+        $album = Album::create([
+            'name' => $request->get('album')
+        ]);
+
         if($request->hasFile('image'))
         {
             foreach ($request->file('image') as $image)
@@ -26,7 +30,7 @@ class ImageController extends Controller
                 $path = $image->store('uploads', 'public');
                 Image::create([
                     'name' => $path,
-                    'album_id' => 1
+                    'album_id' => $album->id
                 ]);
             }
         }
