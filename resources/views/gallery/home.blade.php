@@ -5,6 +5,7 @@
     <div class="row justify-content-center">
         <form action="{{ route('album.store') }}" method="POST" enctype="multipart/form-data">
             @csrf
+            <input type="text" name="album" class="form-control" placeholder="Album Name"><br>
 
             <input type="file" name="image[]" class="form-control">
             <input type="file" name="image[]" class="form-control">
