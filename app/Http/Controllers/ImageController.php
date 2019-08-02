@@ -41,15 +41,5 @@ class ImageController extends Controller
         }
 
         return "<div class='alert alert-success'>Album created successfully!</div>";
-        // $path = public_path() . '/upload/' . Carbon::now()->isoFormat("DDMMYYYY") . '/';   
-   
-        // if(!File::isDirectory($path)){
-        //     File::makeDirectory($path, 0777, true);
-        // }
-
-        // $imageName = request()->file->getClientOriginalName();
-        // request()->file->move($path, $imageName);
-
-        // return response()->json(['uploaded' => $path . $imageName]);
     }
 }
