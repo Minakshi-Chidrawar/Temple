@@ -34,6 +34,8 @@ class ImageController extends Controller
                 ]);
             }
         }
+
+        return "<div class='alert alert-success'>Album created successfully!</div>";
         // $path = public_path() . '/upload/' . Carbon::now()->isoFormat("DDMMYYYY") . '/';   
    
         // if(!File::isDirectory($path)){
