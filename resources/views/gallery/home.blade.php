@@ -58,3 +58,31 @@
         });
     });
 </script>
+
+<script>
+    $(document).ready(function () {
+        $("#form").on('submit', function (e) {
+            e.preventDefault();
+            $("#errorMsg").empty();
+            $.ajax({
+                url: '/album',
+                method: "POST",
+                data: new FormData(this),
+                contentType: false,
+                cache: false,
+                processData: false,
+
+                success:function (response) {
+                    $(".show").html(response);
+                    $("#form")[0].reset();
+                },
+                error:function (data) {
+                    var error = data.responseJSON;
+                    $.each(error.errors, function (key, value) {
+                       $("#errorMsg").append('<p class="text-left text-danger">'+value+'</p>')
+                    });
+                }
+            });
+        });
+    });
+</script>
