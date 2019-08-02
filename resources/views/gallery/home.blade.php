@@ -1,22 +1,44 @@
 @extends('master.layout')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
-        <form action="{{ route('album.store') }}" method="POST" enctype="multipart/form-data">
-            @csrf
-            <input type="text" name="album" class="form-control" placeholder="Album Name"><br>
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <div class="show"></div>
+                <div class="card">
+                    <div class="card-body">
+                        <div id="errorMsg"></div>
+                        <form id="form" action=" {{ route('album.store') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
 
-            <input type="file" name="image[]" class="form-control">
-            <input type="file" name="image[]" class="form-control">
-            <input type="file" name="image[]" class="form-control">
+                            <div class="form-group">
+                                <label for="album">Name of Album</label>
+                                <input type="text" name="album" class="form-control">
+                            </div>
+                            <div class="input-group control-group add-more-button">
+                                <input type="file" name="image[]" class="form-control" id="image">
+                                <div class="input-group-btn">
+                                    <button class="btn btn-success btn-add-more" type="button">Add</button>
+                                </div>
+                            </div>
 
-            <button class="btn btn-primary" type="submit">Submit</button>
-        </form>
+                            <div class="copy">
+                                <div class="input-group control-group mt-4 remove-button">
+                                    <input type="file" name="image[]" class="form-control" id="image">
+                                    <div class="input-group-btn">
+                                        <button class="btn btn-danger remove" type="button">Remove</button>
+                                    </div>
+                                </div>
+                            </div>
 
-        @foreach($images as $image)
-            <img src="{{ asset('storage/'.$image->name) }}" class="img-thumbnail">
-        @endforeach
+                            <div class="form-group">
+                                <button class="btn btn-success mt-4" type="submit">Submit</button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+        </div>
     </div>
-</div>
 @endsection
