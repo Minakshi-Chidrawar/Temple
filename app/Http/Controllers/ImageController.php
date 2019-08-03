@@ -17,6 +17,13 @@ class ImageController extends Controller
         return view('gallery.home', compact('images'));
     }
 
+    public function gallery()
+    {
+        $gallery = Album::with('images')->get();
+
+        return view('gallery.gallery', compact('gallery'));
+    }
+
     public function store(Request $request)
     {
         $this->validate($request, [
