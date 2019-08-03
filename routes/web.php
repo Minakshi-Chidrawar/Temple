@@ -39,3 +39,4 @@ Route::post('/contact', ['as' => 'contact.store', 'uses' => 'TempleController@st
 Route::get('/home','ImageController@index')->name('home');
 Route::get('/album','ImageController@index');
 Route::post('/album','ImageController@store')->name('album.store');
+Route::get('/gallery','ImageController@gallery')->name('gallery');
