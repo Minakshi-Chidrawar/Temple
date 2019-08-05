@@ -57,6 +57,25 @@ class ImageController extends Controller
         return "<div class='alert alert-success'>Album created successfully!</div>";
     }
 
+    public function addImage(Request $request)
+    {
+        $albumId = request('id');
+
+        if($request->hasFile('image'))
+        {
+            foreach ($request->file('image') as $image)
+            {
+                $path = $image->store('uploads', 'public');
+                Image::create([
+                    'name' => $path,
+                    'album_id' => $albumId
+                ]);
+            }
+        }
+
+        return redirect()->back()->with('message', 'Image added successfully!');
+    }
+
     public function destroy()
     {
         $id = request('id');
