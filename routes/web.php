@@ -42,3 +42,4 @@ Route::post('/album','ImageController@store')->name('album.store');
 Route::get('/gallery','ImageController@gallery')->name('gallery');
 Route::get('/gallery/images/{id}','ImageController@show');
 Route::post('/image/delete','ImageController@destroy')->name('image.delete');
+Route::post('/album/image','ImageController@addImage')->name('album.image');
