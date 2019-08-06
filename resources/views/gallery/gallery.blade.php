@@ -6,8 +6,13 @@
             @foreach($gallery as $item)
                 <div class="col-sm-4">
                     <a href="gallery/images/{{ $item->id }}">
+
                         <div class="item">
-                            <img src="storage/uploads/6L8XE46FOlcDhC7Ca8iCqL0f0JacmqZzWOw1Qmuw.jpeg" class="img-thumbnail">
+                            @if(empty($item->images[0]))
+                                <img src="images/Mataji.png" class="img-thumbnail">
+                            @else
+                                <img src="{{ asset('storage/'.$item->images[0]->name) }}" class="img-thumbnail">
+                            @endif
                             <a href="gallery/images/{{ $item->id }}" class="centered">{{ $item->name }}</a>
                         </div>
                     </a>
