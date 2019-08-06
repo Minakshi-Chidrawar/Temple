@@ -73,7 +73,7 @@ class ImageController extends Controller
             }
         }
 
-        return redirect()->back()->with('message', 'Image added successfully!');
+        return redirect()->back()->with('message', 'Image/s added successfully!');
     }
 
     public function destroy()
