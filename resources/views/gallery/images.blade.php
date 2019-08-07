@@ -8,7 +8,21 @@
 
         <h1>{{ $gallery->name }}</h1>
 
-        @include('gallery.addImage')
+        <div class="row">
+            <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
+                <div class="btn-group  btn-group-sm mr-2" role="group" aria-label="Add Image">
+                    @include('gallery.addImage')
+                </div>
+                <div class="btn-group  btn-group-sm" role="group" aria-label="Go back to Gallery">
+                    <a href="{{ route('gallery') }}">
+                        <button type="button" class="btn btn-outline-info">
+                            Gallery
+                        </button>
+                    </a>
+                </div>
+            </div>
+        </div>
+
         <div class="row">
             @foreach($gallery->images as $image)
                 <div class="col-sm-4">
@@ -17,7 +31,7 @@
                     </div>
 
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#exampleModal{{ $image->id }}">
+                    <button type="button" class="btn btn-danger mt-2" data-toggle="modal" data-target="#exampleModal{{ $image->id }}">
                     Delete
                     </button>
                     <!-- Delete Modal -->
