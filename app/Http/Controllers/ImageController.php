@@ -23,7 +23,7 @@ class ImageController extends Controller
     {
         $gallery = Album::with('images')
                             ->orderBy('created_at', 'desc')
-                            ->get();
+                            ->paginate(12);
 
         return view('gallery.gallery', compact('gallery'));
     }
