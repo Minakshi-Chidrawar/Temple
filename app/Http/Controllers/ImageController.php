@@ -7,6 +7,8 @@ use App\Image;
 use App\Album;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
+use Illuminate\Database\Eloquent\Collection;
 
 class ImageController extends Controller
 {
@@ -19,7 +21,9 @@ class ImageController extends Controller
 
     public function gallery()
     {
-        $gallery = Album::with('images')->get();
+        $gallery = Album::with('images')
+                            ->orderBy('created_at', 'desc')
+                            ->get();
 
         return view('gallery.gallery', compact('gallery'));
     }
