@@ -1,5 +1,5 @@
 <!-- Button trigger modal -->
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+<button type="button" class="btn btn-outline-info" data-toggle="modal" data-target="#exampleModal">
     Add Image
 </button>
 
@@ -18,6 +18,7 @@
                     @csrf
 
                     <div class="form-group">
+                    <label for="Add images">Add Image/s</label>
                         <input type="hidden" name="id" value="{{ $gallery->id }}" class="form-control">
                     </div>
                     <div class="input-group control-group add-more-button">
