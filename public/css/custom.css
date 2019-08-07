@@ -18,8 +18,8 @@ h2 {
 
 p {
   color: #721c24;
-  font-family: 'Roboto', cursive;
-  font-size: 98%;
+  /*font-family: 'Roboto', cursive;*/
+  font-size: 100%;
   font-weight: initial !important;
   letter-spacing: normal !important;
 }
@@ -159,13 +159,16 @@ btn-service {
 .centered {
   position: absolute;
   top: 50%;
-  left: 25%;
+  left: 35%;
+  text-emphasis: none;
   transform: translate(-50%, -50%);
   color: #ffffff;
   font-size: 24px;
-}
+  }
 
 .img-thumbnail {
   border: 0px;
   border-radius: 0px;
+  height: 250px;
+  width: 250px;
 }
