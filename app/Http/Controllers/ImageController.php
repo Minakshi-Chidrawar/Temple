@@ -16,7 +16,7 @@ class ImageController extends Controller
     {
         $images = Image::get();
 
-        return view('gallery.home', compact('images'));
+        return view('gallery.createAlbum', compact('images'));
     }
 
     public function gallery()
@@ -58,7 +58,8 @@ class ImageController extends Controller
             }
         }
 
-        return "<div class='alert alert-success'>Album created successfully!</div>";
+        //return "<div class='alert alert-success'>Album created successfully!</div>";->with('message', 'Album created successfully!')
+        return redirect()->route('gallery');
     }
 
     public function addImage(Request $request)
