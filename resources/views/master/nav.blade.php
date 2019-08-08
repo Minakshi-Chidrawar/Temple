@@ -18,7 +18,7 @@
                 <a class="nav-link" href="events.html">News & Events</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="gallery.html">Gallery</a>
+                <a class="nav-link" href="{{route('gallery')}}">Gallery</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{route('mission')}}">Mission</a>
