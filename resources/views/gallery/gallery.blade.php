@@ -3,7 +3,26 @@
 @section('content')
     <div class="container">
         <h1>Gallery</h1>
-        <button class="btn btn-link"> <a href="{{ route('album.store') }}">Create Album</a></button>
+        <div class="row">
+            <button class="btn btn-dark"> <a href="{{ route('album.store') }}">
+                Add Gallery</a>
+            </button>
+
+            <div class="col-md-5">
+                <form action="/search" method="POST" role="search">
+                    @csrf
+                    <div class="input-group custom-search-form">
+                        <input type="text" class="form-control" name="search" placeholder="Search...">
+                        <span class="input-group-btn">
+                            <button class="btn btn-primary" type="submit">
+                                <i class="fa fa-display fa-search"></i>
+                            </button>
+                        </span>
+                    </div>
+                </form>
+            </div>
+        </div>
+
         <div class="row">
             @foreach($gallery as $item)
                 <div class="col-sm-4">
