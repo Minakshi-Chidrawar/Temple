@@ -3,15 +3,22 @@
 namespace App\Http\Controllers;
 
 use Mail;
+use App\Image;
+use App\Album;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use App\Mail\ContactUs;
 
 class TempleController extends Controller
 {
+
     public function index()
     {
-        return view('temple.index');
+        $gallery = Album::with('images')
+                            ->orderBy('created_at', 'desc')
+                            ->first();
+
+        return view('temple.index', compact('gallery'));
     }
 
     public function aboutTemple()
