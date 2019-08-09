@@ -9,15 +9,7 @@
       </div>
     </div>
 
-    <div class="col-4">
-      <div class="subPages">
-        <h5 class="font-weight-bold mb-8">Gallery</h5>
-        <ul class="list-unstyled">
-          <li>Coming Soon...</li>
-          <li>&nbsp;</li>
-        </ul>
-      </div>
-    </div>
+    @include('partials.galleryIndex')
 
     <div class="col-4">
       <div class="subPages">
