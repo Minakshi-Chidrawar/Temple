@@ -27,7 +27,7 @@
             @foreach($gallery->images as $image)
                 <div class="col-sm-4">
                     <div class="item">
-                        <img src="{{ asset('storage/'.$image->name) }}" class="img-thumbnail">
+                        <img src="{{ asset('/'.$image->name) }}" class="img-thumbnail">
                     </div>
 
                     <!-- Button trigger modal -->
