@@ -81,7 +81,11 @@ class ImageController extends Controller
             {
                 $imageName = rand(1111,9999).time() . '.' . $image->getClientOriginalExtension();
                 $path = 'upload/' . $imageName;
-                IntervensionImage::make($image)->resize(250,250)->save($path);
+                $img = IntervensionImage::make($image);
+                $img->fit(250, 250, function ($constraint) {
+                    $constraint->upsize();
+                });
+                $img->save($path);
 
                 Image::create([
                     'name' => $path,
