@@ -7,6 +7,7 @@ use App\Image;
 use App\Album;
 use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Image as IntervensionImage;
 use Illuminate\Pagination\Paginator;
 use Illuminate\Database\Eloquent\Collection;
 
@@ -39,44 +40,22 @@ class ImageController extends Controller
     {
         $this->validate($request, [
             'album' => 'required|min:3|max:50',
-            'image' => 'required'
+            'image' => 'required',
+            'image.*' => 'image|mimes:jpeg,png,jpg,gif,svg'
         ]);
         
         $album = Album::create([
             'name' => $request->get('album')
         ]);
 
-        if($request->hasFile('image'))
-        {
-            foreach ($request->file('image') as $image)
-            {
-                $path = $image->store('uploads', 'public');
-                Image::create([
-                    'name' => $path,
-                    'album_id' => $album->id
-                ]);
-            }
-        }
+        $this->uploadAndSaveImages($request, $album->id);
 
-        //return "<div class='alert alert-success'>Album created successfully!</div>";->with('message', 'Album created successfully!')
-        return redirect()->route('gallery');
+        return "<div class='alert alert-success'>Album created successfully!</div>";
     }
 
     public function addImage(Request $request)
     {
-        $albumId = request('id');
-
-        if($request->hasFile('image'))
-        {
-            foreach ($request->file('image') as $image)
-            {
-                $path = $image->store('uploads', 'public');
-                Image::create([
-                    'name' => $path,
-                    'album_id' => $albumId
-                ]);
-            }
-        }
+        $this->uploadAndSaveImages($request, request('id'));
 
         return redirect()->back()->with('message', 'Image/s added successfully!');
     }
@@ -91,5 +70,23 @@ class ImageController extends Controller
 
         \Storage::delete('public/'.$filename);
         return redirect()->back()->with('message', 'Image deleted successfully!');
+    }
+
+    public function uploadAndSaveImages($request, $albumId)
+    {        
+        if($request->hasFile('image'))
+        {
+            foreach ($request->file('image') as $image)
+            {
+                $imageName = rand(1111,9999).time() . '.' . $image->getClientOriginalExtension();
+                $path = 'upload/' . $imageName;
+                IntervensionImage::make($image)->resize(250,250)->save($path);
+
+                Image::create([
+                    'name' => $path,
+                    'album_id' => $albumId
+                ]);
+            }
+        }
     }
 }
