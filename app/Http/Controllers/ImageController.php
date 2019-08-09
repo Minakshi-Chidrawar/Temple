@@ -66,9 +66,10 @@ class ImageController extends Controller
 
         $image = Image::findOrFail($id);
         $filename = $image->name;
-        $image->delete();
 
-        \Storage::delete('public/'.$filename);
+        $image->delete();
+        File::delete($filename);
+        
         return redirect()->back()->with('message', 'Image deleted successfully!');
     }
 
