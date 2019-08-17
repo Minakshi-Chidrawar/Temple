@@ -1,5 +1,6 @@
-<div class="row">
-    <div class="col-4">
+<div class="container">
+  <div class="row">
+    <div class="col-6">
       <div class="subPages">
         <h5 class="font-weight-bold mb-8">Timings</h5>
         <ul class="list-unstyled">
@@ -9,9 +10,7 @@
       </div>
     </div>
 
-    @include('partials.galleryIndex')
-
-    <div class="col-4">
+    <div class="col-6">
       <div class="subPages">
         <h5 class="font-weight-bold mb-8">News & Events</h5>
         <ul class="list-unstyled">
@@ -21,3 +20,4 @@
       </div>
     </div>
   </div>
+</div>
