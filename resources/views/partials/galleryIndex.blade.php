@@ -1,6 +1,7 @@
 <div class="col-4">
     <div class="subPages">
         <h5 class="font-weight-bold text-center">Latest Gallery</h5>
+        @if (!(empty($gallery)))
         <a href="gallery/images/{{ $gallery->id }}">
             <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
             <div class="carousel-inner">
@@ -23,5 +24,10 @@
             </a>
             </div>
         </a>
+        @else
+            <div>
+                <p>Coming Soon ...</p>
+            </div>
+        @endif
     </div>
 </div>
