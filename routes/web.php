@@ -16,7 +16,7 @@
 // });
 
 Route::get('/', 'TempleController@index');
-Route::get('/home', ['as' => 'home', 'uses' => 'TempleController@index']);
+Route::get('/main', ['as' => 'main', 'uses' => 'TempleController@index']);
 Route::get('/aboutTemple', ['as' => 'aboutTemple', 'uses' => 'TempleController@aboutTemple']);
 Route::get('/mission', ['as' => 'mission', 'uses' => 'TempleController@mission']);
 Route::get('/horoscope', ['as' => 'horoscope', 'uses' => 'TempleController@horoscope']);
