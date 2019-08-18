@@ -1,7 +1,10 @@
 @extends('master.layout')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-4">
+        @if(Session::has('message'))
+            <div class="alert alert-succes">{{ session::get('message') }}</div>
+        @endif
         <div class="row justify-content-center">
             <div class="col-md-8">
                 <div class="show"></div>
