@@ -1,12 +1,14 @@
 @extends('master.layout')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-4">
         <h1>Gallery</h1>
         <div class="row">
+            @if(Auth::check() && Auth::user()->role == 'admin')
             <button class="btn btn-dark"> <a href="{{ route('album.store') }}">
                 Add Gallery</a>
             </button>
+            @endif
 
             <div class="col-md-5">
                 <form action="/search" method="POST" role="search">
