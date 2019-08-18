@@ -1,7 +1,7 @@
 @extends('master.layout')
 
 @section('content')
-    <div class="container">
+    <div class="container mt-4">
         @if(Session::has('message'))
                 <div class="alert alert-success">{{ Session::get('message')}}</div>
         @endif
@@ -10,9 +10,11 @@
 
         <div class="row">
             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
-                <div class="btn-group  btn-group-sm mr-2" role="group" aria-label="Add Image">
-                    @include('gallery.addImage')
-                </div>
+                @if(Auth::check() && Auth::user()->role == 'admin')
+                    <div class="btn-group  btn-group-sm mr-2" role="group" aria-label="Add Image">
+                        @include('gallery.addImage')
+                    </div>
+                @endif
                 <div class="btn-group  btn-group-sm" role="group" aria-label="Go back to Gallery">
                     <a href="{{ route('gallery') }}">
                         <button type="button" class="btn btn-outline-info">
@@ -31,9 +33,11 @@
                     </div>
 
                     <!-- Button trigger modal -->
-                    <button type="button" class="btn btn-danger mt-2" data-toggle="modal" data-target="#exampleModal{{ $image->id }}">
-                    Delete
-                    </button>
+                    @if(Auth::check() && Auth::user()->role == 'admin')
+                        <button type="button" class="btn btn-danger mt-2" data-toggle="modal" data-target="#exampleModal{{ $image->id }}">
+                        Delete
+                        </button>
+                    @endif
                     <!-- Delete Modal -->
                     <div class="modal fade" id="exampleModal{{ $image->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                         <div class="modal-dialog" role="document">
