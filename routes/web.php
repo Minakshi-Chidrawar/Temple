@@ -46,3 +46,5 @@ Route::post('/album/image','ImageController@addImage')->name('album.image');
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+Route::get('/events', 'EventController@index')->name('events');
