@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class EventController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin', ['only' => ['create', 'edit', 'update', 'destroy', 'store']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,17 +20,13 @@ class EventController extends Controller
     public function index()
     {
         $events = Event::get();
+        
         return view('event.events', compact('events'));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function create()
     {
-        //
+        return view('event.create');
     }
 
     /**
@@ -36,7 +37,24 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|min:3',
+            'description' => 'required|min:5',
+            'startDate' => 'date',
+            'endDate' => 'nullable|date',
+            'sponsor' => 'nullable'
+        ]);
+        //dd($request);
+
+        Event::create([
+            'title' => request('title'),
+            'description' => request('description'),
+            'startDate' => request('startDate'),
+            'endDate' => request('endDate'),
+            'sponsor' => request('sponsor'),
+        ]);
+
+        return redirect()->back()->with('message', 'Event added successfully!');
     }
 
     /**
@@ -45,9 +63,11 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(Event $event)
+    public function show($id)
     {
-        //
+        $event = Event::findOrFail($id);
+
+        return view('event.event', compact('event'));
     }
 
     /**
@@ -56,9 +76,14 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function edit(Event $event)
+    public function edit($id)
     {
-        //
+        //dd($id);
+        $event = Event::findOrFail($id);
+
+        //dd($event);
+
+        return view('event.edit', compact('event'));
     }
 
     /**
@@ -68,9 +93,12 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Event $event)
+    public function update(Request $request, $id)
     {
-        //
+        $event = Event::findOrFail($id);
+        $event->Update($request->all());
+
+        return redirect()->back()->with('message', 'Event updated successfully!');
     }
 
     /**
@@ -79,8 +107,13 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Event $event)
+    public function destroy()
     {
-        //
+        $id = request('id');
+        $event = Event::findOrFail($id);
+
+        $event->delete();
+        
+        return redirect()->back()->with('message', 'Event deleted successfully!');
     }
 }
