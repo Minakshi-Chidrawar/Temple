@@ -27,7 +27,7 @@
 
                     <div class="form-group">
                         <label for="description">Event Description:</label>
-                        <textarea name="description" id ="summernote" class="form-control {{ $errors->has('description') ? ' is-invalid' : ''}}">
+                        <textarea name="description" id="summernote" class="form-control {{ $errors->has('description') ? ' is-invalid' : ''}}">
                         {{ $event->description }}</textarea>
                     </div>
                     @if ($errors->has('description'))
