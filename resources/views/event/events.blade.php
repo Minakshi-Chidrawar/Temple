@@ -3,67 +3,67 @@
 @section('content')
     <div class="container mt-4">
         <h1>News & Events</h1>
-        <div class="row">
-            <button class="btn btn-dark"> <a href="{{ route('event.store') }}">
+
+        @if(Auth::check() && Auth::user()->role == 'admin')
+        <div class="row mb-4 mt-2">
+            <button class="btn btn-service"> <a href="{{ route('event.create') }}">
                 Add Event</a>
             </button>
         </div>
+        @endif
 
-        <div class="card mt-5">
-            <div class="card-header">Create Event</div>
-            <div class="card-body">
-                <form id="form" action="" method="POST">
-                    @csrf
+        @if(!empty($events))
+            <table class="table">
+                <thead>
+                    <th>Event Title</th>
+                    <th>Event Start Date</th>
+                    <th>Event End Date</th>
+                    <th>Sponsored By</th>
+                    <th></th>
+                </thead>
+                @foreach($events as $event)
+                    <tr>
+                        <td><a href="event/event/{{ $event->id }}">{{ $event->title }}</a></td>
+                        <td>{{ $event->startDate }}</td>
+                        <td>{{ $event->endDate }}</td>
+                        <td>{{ $event->sponsor }}</td>
+                        @if(Auth::check() && Auth::user()->role == 'admin')
+                        <td>
+                            <div class="btn btn-group">
+                                <button type="button"  class="btn btn-success btn-sm"><a href="{{ route('event.edit', [$event->id]) }}">Edit</a></button>
+                                <button type="button"  class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModal{{ $event->id }}">Delete</button>
+                            </div>
+                        </td>
+                        @endif
+                    </tr>
+                @endforeach
+            </table>
 
-                    <div class="form-group">
-                        <label for="title">Event:</label>
-                        <input type="text" name="title" class="form-control"/>
-                    </div>
-
-                    <div class="form-group">
-                        <label for="description">Event Description:</label>
-                        <textarea name="description" class="form-control summernote"></textarea>
-                    </div>
-                    <div class="row">
-                        <div class="form-group col-6">
-                            <label for="startTime">Event Start Time:</label>
-                            <input type="time" name="startTime" class="form-control"/>
+            <!-- Delete Modal -->
+            <div class="modal fade" id="exampleModal{{ $event->id }}" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                        <div class="modal-header">
+                            <h5 class="modal-title" id="exampleModalLabel">Delete</h5>
+                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                            </button>
                         </div>
-                        <div class="form-group col-6">
-                            <label for="endTime">Event EndT ime:</label>
-                            <input type="time" name="endTime" class="form-control"/>
+                        <div class="modal-body">
+                            Do you want to delete?
+                        </div>
+                        <div class="modal-footer">
+                            <form action="{{ route('event.delete') }}" method="POST">
+                                @csrf
+                                <input type="hidden" name="id" value="{{ $event->id }}">
+                                <button class="btn btn-danger" type="submit">Delete</button>
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                            </form> 
                         </div>
                     </div>
-
-                    <div class="row">
-                        <div class="form-group col-6">
-                            <label for="startDate">Event Start Date:</label>
-                            <input type="date" name="startDate" class="form-control"/>
-                        </div>
-                        <div class="form-group col-6">
-                            <label for="endDate">Event End Date:</label>
-                            <input type="date" name="endDate" class="form-control"/>
-                        </div>
-                    </div>
-                    <div class="form-group">
-                        <label for="sponser">Sponsor:</label>
-                        <input type="text" name="sponser" class="form-control"/>
-                    </div>
-
-                    <div class="form-row">
-                        <button class="btn btn-success mt-4" type="submit">Submit</button>
-                    </div>
-                </form>
+                </div>
             </div>
-        </div>
-
+            <!-- End of the Delete Modal -->
+        @endif
     </div>
 @endsection
-
-<script type="text/javascript">
-   $(document).ready(function() {
-        $('#content').summernote({
-            height: 500,
-        });
-    }); 
-</script>
