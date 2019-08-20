@@ -9,7 +9,7 @@
         @endif
 
         <div class="card mt-3">
-            <div class="card-header">Create Event</div>
+            <div class="card-header">Create a Event</div>
             <div class="card-body">
                 <form id="form" action="{{ route('event.store') }}" method="POST">
                     @csrf
