@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Event;
 use Illuminate\Http\Request;
+use Illuminate\Pagination\Paginator;
 
 class EventController extends Controller
 {
@@ -19,7 +20,8 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = Event::get();
+        $events = Event::orderBy('created_at', 'desc')
+                        ->paginate(12);
         
         return view('event.events', compact('events'));
     }
