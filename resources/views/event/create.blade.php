@@ -28,7 +28,7 @@
                     <div class="form-group">
                         <label for="description">Event Description:</label>
                         <textarea name="description" id ="summernote" class="form-control {{ $errors->has('description') ? ' is-invalid' : ''}}"
-                        value="{{ old('description') }}"></textarea>
+                        value="{{ old('description') }}" rows="10" >{{ old('description') }}</textarea>
                     </div>
                     @if ($errors->has('description'))
                         <span class="invalid-feedback" role="alert">
