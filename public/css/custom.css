@@ -1,13 +1,13 @@
   /* Make the image fully responsive */
   html, body {
-    background-color: #ecdbdd;
     color: #636b6f;
     font-family: 'Vollkorn', serif;
     margin: 0;
 }
 
 .carousel-img {
-    height: 600px;
+    height: 525px;
+    width: 100%;
 }
 
 h2 {
@@ -22,6 +22,14 @@ p {
   font-size: 100%;
   font-weight: initial !important;
   letter-spacing: normal !important;
+}
+
+a {
+  color: grey;
+}
+
+.btn > a {
+  color: #ffffff;
 }
 
 .fa {
@@ -87,14 +95,12 @@ div-table4 {
   margin-left: 25%;
 }
 
-btn-service {
+.btn-service {
   box-shadow: 0 5px #7b0d0d;
   background: #7b0d0d;
   color: #ffffff;
   border-radius: 14px;
   padding: 0px 15px;
-  width: 10%;
-  height: 35px;
   vertical-align: center;
 }
 
@@ -139,6 +145,10 @@ btn-service {
   border: 1px solid #7b0d0d;
   border-radius: 0px 20px;
   box-shadow: 10px 10px 6px rgba(0, 0, 0, 0.176);
+}
+
+.home-gallery {
+  margin: 20px 15% 0px;
 }
 
 .item {
@@ -187,4 +197,14 @@ btn-service {
   border-radius: 0px;
   height: 50px;
   width: 50px;
+}
+
+.back-color {
+   background-color: #ecdbdd;
+}
+
+.volunteer {
+  font-weight: 100;
+  font-size: 16px;
+  color: #7b0d0d;
 }
