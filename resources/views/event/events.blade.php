@@ -6,7 +6,7 @@
 
         @if(Auth::check() && Auth::user()->role == 'admin')
         <div class="row mb-4 mt-2">
-            <button class="btn btn-service"> <a href="{{ route('event.create') }}">
+            <button class="btn btn-success"> <a href="{{ route('event.create') }}">
                 Add Event</a>
             </button>
         </div>
@@ -64,6 +64,9 @@
                 </div>
             </div>
             <!-- End of the Delete Modal -->
+            <div class="panel-heading mt-5 pagination" style="">
+                {{$events->links()}}
+            </div>
         @endif
     </div>
 @endsection
