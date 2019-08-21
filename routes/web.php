@@ -51,9 +51,9 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::get('/events', 'EventController@index')->name('events');
 Route::get('/event/create', 'EventController@create')->name('event.create');
 Route::post('/event/create','EventController@store')->name('event.store');
-Route::get('/event/{id}/edit', 'EventController@edit')->name('event.edit');
-Route::post('/event/{id}/edit', 'EventController@update')->name('event.update');
-Route::get('/event/event/{id}', 'EventController@show');
+Route::get('/events/{event}/edit', 'EventController@edit')->name('event.edit');
+Route::post('/events/{event}/edit', 'EventController@update')->name('event.update');
+Route::get('/events/event/{id}', 'EventController@show');
 Route::post('/event/delete', 'EventController@destroy')->name('event.delete');
 
 // Routes for Vacancies/ Vacancy
