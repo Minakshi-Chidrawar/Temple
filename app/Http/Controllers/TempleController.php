@@ -5,20 +5,28 @@ namespace App\Http\Controllers;
 use Mail;
 use App\Image;
 use App\Album;
+use App\Event;
+use Carbon\Carbon;
+use App\Mail\ContactUs;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
-use App\Mail\ContactUs;
 
 class TempleController extends Controller
 {
 
     public function index()
     {
+        $date = Carbon::now()->toDateString();
+        $event = Event::where('startDate', '>', $date)->orderBy('startDate', 'asc')
+                        ->first();
+
+        //dd($event);
+
         $gallery = Album::with('images')
                             ->orderBy('created_at', 'desc')
                             ->first();
 
-        return view('temple.index', compact('gallery'));
+        return view('temple.index', compact('event', 'gallery'));
     }
 
     public function aboutTemple()
