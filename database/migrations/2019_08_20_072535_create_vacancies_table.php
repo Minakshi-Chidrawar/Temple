@@ -16,12 +16,12 @@ class CreateVacanciesTable extends Migration
         Schema::create('vacancies', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('title');
-            $table->string('post')->nullable();
+            $table->string('role')->nullable();
             $table->text('description');
             $table->date('postDate');
             $table->date('closingDate');
-            $table->string('email');
-            $table->smallInteger('mobile');
+            $table->string('email')->default('jasmaicha@gmail.com');
+            $table->biginteger('mobile')->default('07882253540');
             $table->string('note')->nullable();
             $table->timestamps();
         });
