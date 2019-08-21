@@ -14,7 +14,9 @@ class VacancyController extends Controller
      */
     public function index()
     {
-        //
+        $vacancies = Vacancy::get();
+
+        return view('vacancy.vacancies', compact('vacancies'));
     }
 
     /**
@@ -24,7 +26,8 @@ class VacancyController extends Controller
      */
     public function create()
     {
-        //
+        $vacancy = new Vacancy();
+        return view('vacancy.create', compact('vacancy'));
     }
 
     /**
@@ -35,7 +38,27 @@ class VacancyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $this->validate($request, [
+            'title' => 'required|min:3',
+            'role' => 'nullable',
+            'description' => 'required|min:5',
+            'postDate' => 'date',
+            'closingDate' => 'nullable|date',
+            'note' => 'nullable',
+        ]);
+
+        Vacancy::create([
+            'title' => request('title'),
+            'role' => request('role'),
+            'description' => request('description'),
+            'postDate' => request('postDate'),
+            'closingDate' => request('closingDate'),
+            'email'  => 'jasmaicha@gmail.com',
+            'mobile' => '07882253540',
+            'note' => request('note'),
+        ]);
+
+        return redirect('\vacancies')->with('message', 'Vacancy added successfully!');
     }
 
     /**
@@ -57,7 +80,7 @@ class VacancyController extends Controller
      */
     public function edit(Vacancy $vacancy)
     {
-        //
+        return view('vacancy.edit', compact('vacancy'));
     }
 
     /**
@@ -69,7 +92,9 @@ class VacancyController extends Controller
      */
     public function update(Request $request, Vacancy $vacancy)
     {
-        //
+        $vacancy->update($this->validateRequest());
+
+        return redirect('\vacancies')->with('message', 'Vacancy updated Successfully!');
     }
 
     /**
@@ -80,6 +105,20 @@ class VacancyController extends Controller
      */
     public function destroy(Vacancy $vacancy)
     {
-        //
+        $vacancy->delete();
+
+        return redirect('\vacancies');
+    }
+
+    public function validateRequest()
+    {
+        return request()->validate([
+            'title' => 'required|min:3',
+            'role' => 'nullable',
+            'description' => 'required|min:5',
+            'postDate' => 'date',
+            'closingDate' => 'nullable|date',
+            'note' => 'nullable',
+        ]);
     }
 }
