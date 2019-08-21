@@ -60,3 +60,6 @@ Route::post('/event/delete', 'EventController@destroy')->name('event.delete');
 Route::get('/vacancies', 'VacancyController@index')->name('vacancies');
 Route::get('/vacancy/create', 'VacancyController@create')->name('vacancy.create');
 Route::post('/vacancy/create','VacancyController@store')->name('vacancy.store');
+Route::get('/vacancies/{vacancy}/edit', 'VacancyController@edit')->name('vacancy.edit');
+Route::post('/vacancies/{vacancy}', 'VacancyController@update')->name('vacancy.update');
+Route::delete('/vacancy/{vacancy}', 'VacancyController@destroy')->name('vacancy.delete');
