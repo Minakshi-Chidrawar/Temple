@@ -28,7 +28,9 @@ class EventController extends Controller
 
     public function create()
     {
-        return view('event.create');
+        $event = new Event();
+
+        return view('event.create', compact('event'));
     }
 
     /**
@@ -39,14 +41,7 @@ class EventController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'title' => 'required|min:3',
-            'description' => 'required|min:5',
-            'startDate' => 'date',
-            'endDate' => 'nullable|date',
-            'sponsor' => 'nullable'
-        ]);
-        //dd($request);
+        $this->validateRequest();
 
         Event::create([
             'title' => request('title'),
@@ -56,7 +51,7 @@ class EventController extends Controller
             'sponsor' => request('sponsor'),
         ]);
 
-        return redirect()->back()->with('message', 'Event added successfully!');
+        return redirect('\events')->with('message', 'Event added successfully!');
     }
 
     /**
@@ -78,13 +73,8 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Event $event)
     {
-        //dd($id);
-        $event = Event::findOrFail($id);
-
-        //dd($event);
-
         return view('event.edit', compact('event'));
     }
 
@@ -95,12 +85,11 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Event $event)
     {
-        $event = Event::findOrFail($id);
-        $event->Update($request->all());
+        $event->Update($this->validateRequest());
 
-        return redirect()->back()->with('message', 'Event updated successfully!');
+        return redirect('\events')->with('message', 'Event updated successfully!');
     }
 
     /**
@@ -116,6 +105,17 @@ class EventController extends Controller
 
         $event->delete();
         
-        return redirect()->back()->with('message', 'Event deleted successfully!');
+        return redirect('\events')->with('message', 'Event deleted successfully!');
+    }
+
+    public function validateRequest()
+    {
+        return request()->validate([
+            'title' => 'required|min:3',
+            'description' => 'required|min:5',
+            'startDate' => 'date',
+            'endDate' => 'nullable|date',
+            'sponsor' => 'nullable'
+        ]);
     }
 }
