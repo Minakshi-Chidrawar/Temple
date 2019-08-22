@@ -4,6 +4,10 @@
     <div class="container mt-4">
         <h1>News & Events</h1>
 
+        @if(Session::has('message'))
+            <div class="alert alert-success">{{ session::get('message') }}</div>
+        @endif
+
         @if(Auth::check() && Auth::user()->role == 'admin')
         <div class="row mb-4 mt-2">
             <button class="btn btn-success"> <a href="{{ route('event.create') }}">
@@ -23,7 +27,7 @@
                 </thead>
                 @foreach($events as $event)
                     <tr>
-                        <td><a href="event/event/{{ $event->id }}">{{ $event->title }}</a></td>
+                        <td><a href="events/event/{{ $event->id }}">{{ $event->title }}</a></td>
                         <td>{{ $event->startDate }}</td>
                         <td>{{ $event->endDate }}</td>
                         <td>{{ $event->sponsor }}</td>
