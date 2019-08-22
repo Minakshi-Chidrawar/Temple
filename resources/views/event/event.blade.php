@@ -2,14 +2,19 @@
 
 @section('content')
     <div class="container mt-4">
-        <div class="card mt-5">
+        <div class="">
+            <a href="{{ route('events') }}"><button type="submit" class="btn btn-success">Back to the Events</button></a>
+            <a href="{{ route('event.edit', [$event->id]) }}"><button type="button"  class="btn btn-danger">Edit</button></a>
+        </div>
+        
+        <div class="card mt-4">
             <div class="card-header">{{ $event->title}}</div>
             <div class="card-body">
                 <p>
                     <strong>Date(s)</strong>: {{ $event->startDate }} - {{ $event->endDate }}
                 </p>
                 <p>
-                    {{ $event->description }}
+                    {!! $event->description !!}
                 </p>
                 <p>
                     <strong>Sponsored By</strong>: {{ $event->sponsor }}
