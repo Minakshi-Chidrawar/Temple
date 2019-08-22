@@ -4,8 +4,8 @@
   <figure>
     <img src="{{ asset('images/temp3.jpg') }}" alt="Home page" width="100%" height="228">
   </figure>
-  
-  <div class="container mt-4">
+
+  <div class="container pt-4">
     <div class="row">
       @include('partials.carousel')
 
@@ -27,7 +27,10 @@
     </div>
   </div>
   
-  <hr class="clearfix w-100">
-  @include('partials.subPages')
-  <hr class="clearfix w-100">
+  <div class="back-color pb-4">
+    @include('partials.subPages')
+
+    @include('partials.galleryIndex')
+  </div>
+
 @endsection
