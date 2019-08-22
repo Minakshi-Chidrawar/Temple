@@ -5,7 +5,7 @@
     <div class="row justify-content-center">
         <div class="col-md-8">
             <div class="card">
-                <div class="card-header">Dashboard</div>
+                <div class="card-header">You are logged in!</div>
 
                 <div class="card-body">
                     @if (session('status'))
@@ -13,8 +13,16 @@
                             {{ session('status') }}
                         </div>
                     @endif
+                    <div class="col-md-4">
+                        <ul class="list-unstyled">
+                            <li><a href="{{ route('event.store') }}">Add Event</a></li>
+                            <li><a href="{{ route('vacancy.store') }}">Add a Vacancy</a></li>
+                            <li><a href="{{ route('album.store') }}">Create Album</a></li>
+                            <!-- <li><a href="{{ route('calendar.store') }}">Add Calendar</a></li> -->
+                        </ul>
+                    </div>
+                    
 
-                    You are logged in!
                 </div>
             </div>
         </div>
