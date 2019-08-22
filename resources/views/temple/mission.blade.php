@@ -15,7 +15,7 @@
                 Adhya Shakti Mataji Temple and with Mataji’s blessings to realise our dream of a beautiful Shrine to house the deities in front of the current Hindu Temple in Cowley, Uxbridge.
             </p>
             <h5>The purpose of the Adhya Shakti Mataji Temple would be:</h5>
-            <ul class="font-color">
+            <ul class="font-color size">
                 <li>
                     To be a House of Worship Goddess Durga - Amba Maa, to promote and practice ideals of Hinduism and Hindu religion through Worship, education and teachings.
                 </li>
@@ -33,7 +33,7 @@
                 Through this focus, it is our mission to be mindful of our Hindu heritage, develop a congregational sense of responsibility to the extended community we serve and create an atmosphere of extended family for all our members and by serving Maha Prasad. And for these purposes construct expand and operate a Hindu Temple in Cowley, Uxbridge.
             </p>
             <h5>Charitable Objects:</h5>
-            <ul class="font-color">
+            <ul class="font-color size">
                 <li>
                     The advancement of Hindu Religion, particularly by the performance of Navratri Garba religion celebrations (Including Havan of Godess Durga and Amba Maa), indegenous to Gujaratis.        
                 </li>
