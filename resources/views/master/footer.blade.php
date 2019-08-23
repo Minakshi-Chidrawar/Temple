@@ -1,6 +1,7 @@
 <!-- Footer -->
-<footer class="page-footer font-small mdb-color lighten-3 pt-2">
+<footer class="page-footer font-small mdb-color lighten-3">
 
+    <hr class="clearfix w-100">
     <!-- Footer Links -->
     <div class="container text-center text-md-left">
 
@@ -70,23 +71,30 @@
         <!-- Grid column -->
         <div class="col-md-3 my-4">
           <!-- Social buttons -->
-          <h5 class="font-weight-bold text-uppercase mb-4">Follow Us</h5>
-          <div class="row">
-            <div class="icon-bar">
+          <h5 class="font-weight-bold text-uppercase">Follow Us</h5>
+          <ul class="list-unstyled">
+            <li>              
               <a href="https://www.facebook.com/adhyashakti.mataji" class="facebook">
-                <i class="fa fa-2x fa-facebook-square"></i>
+                <i class="fa fa-facebook-square"></i>
               </a>
               <a href="https://twitter.com/Matajitempleuk" class="twitter">
-                <i class="fa fa-2x fa-twitter-square"></i>
+                <i class="fa fa-twitter-square"></i>
               </a>
               <a href="https://adhyashaktimatajitemple.wordpress.com" class="wordpress">
-                <i class="fa fa-2x fa-wordpress"></i>
+                <i class="fa fa-wordpress"></i>
               </a>
-            </div>
-          </div>
+            </li>
+            <li>
+                <a href="{{ route('subscribe') }}" data-toggle="modal" data-target="#modalSubscriptionForm">
+                  <button class="btn btn-danger btn-rounded ml-4"  type="submit">Subscibe</button>
+                </a>
+            </li>
+          </ul>
         </div>
         <!-- Grid column -->
 
+        @include('subscribe.modal')
+        
       </div>
       <!-- Grid row -->
 
