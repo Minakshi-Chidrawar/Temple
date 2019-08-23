@@ -86,7 +86,7 @@
             </li>
             <li>
                 <a href="{{ route('subscribe') }}" data-toggle="modal" data-target="#modalSubscriptionForm">
-                  <button class="btn btn-danger btn-rounded ml-4"  type="submit">Subscibe</button>
+                  <button class="btn btn-danger btn-rounded ml-4"  type="submit">Subscribe</button>
                 </a>
             </li>
           </ul>
