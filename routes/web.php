@@ -63,3 +63,6 @@ Route::post('/vacancy/create','VacancyController@store')->name('vacancy.store');
 Route::get('/vacancies/{vacancy}/edit', 'VacancyController@edit')->name('vacancy.edit');
 Route::post('/vacancies/{vacancy}', 'VacancyController@update')->name('vacancy.update');
 Route::delete('/vacancy/{vacancy}', 'VacancyController@destroy')->name('vacancy.delete');
+
+// Routes to add subscriber to the user table
+Route::post('/subscribe','subscribeController@store')->name('subscribe');
