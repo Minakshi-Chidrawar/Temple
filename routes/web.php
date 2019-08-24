@@ -54,7 +54,7 @@ Route::post('/event/create','EventController@store')->name('event.store');
 Route::get('/events/{event}/edit', 'EventController@edit')->name('event.edit');
 Route::post('/events/{event}/edit', 'EventController@update')->name('event.update');
 Route::get('/events/event/{id}', 'EventController@show');
-Route::post('/event/delete', 'EventController@destroy')->name('event.delete');
+Route::delete('/event/{event}', 'EventController@destroy')->name('event.delete');
 
 // Routes for Vacancies/ Vacancy
 Route::get('/vacancies', 'VacancyController@index')->name('vacancies');
@@ -66,3 +66,12 @@ Route::delete('/vacancy/{vacancy}', 'VacancyController@destroy')->name('vacancy.
 
 // Routes to add subscriber to the user table
 Route::post('/subscribe','subscribeController@store')->name('subscribe');
+
+// Routes for content/s
+Route::get('/contents', 'IndexController@index')->name('contents');
+Route::get('/content/create', 'IndexController@create')->name('content.create');
+Route::post('/content/create','IndexController@store')->name('content.store');
+Route::get('/contents/{content}/edit', 'IndexController@edit')->name('content.edit');
+Route::post('/contents/{content}/edit', 'IndexController@update')->name('content.update');
+Route::get('/contents/content/{id}', 'IndexController@show');
+Route::delete('/content/{content}', 'IndexController@destroy')->name('content.delete');
