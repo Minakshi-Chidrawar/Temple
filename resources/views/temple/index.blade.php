@@ -1,11 +1,13 @@
 @extends('master.layout')
 
 @section('content')
-  <figure>
-    <img src="{{ asset('images/temp3.jpg') }}" alt="Home page" width="100%" height="228">
-  </figure>
 
-  <div class="container pt-4">
+
+  <div class="back-color">
+    @include('partials.timing')
+  </div>
+
+  <div class="container">
     <div class="row">
       @include('partials.carousel')
 
@@ -28,9 +30,10 @@
   </div>
   
   <div class="back-color pb-4">
-    @include('partials.subPages')
-
-    @include('partials.galleryIndex')
+    @include('partials.upcomingEvent')
   </div>
+  
+  @include('partials.galleryIndex')
+
 
 @endsection
