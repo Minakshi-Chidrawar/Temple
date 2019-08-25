@@ -75,3 +75,4 @@ Route::get('/contents/{content}/edit', 'IndexController@edit')->name('content.ed
 Route::post('/contents/{content}/edit', 'IndexController@update')->name('content.update');
 Route::get('/contents/content/{id}', 'IndexController@show');
 Route::delete('/content/{content}', 'IndexController@destroy')->name('content.delete');
+Route::get('/calendar', 'IndexController@getCalendar')->name('calendar');
