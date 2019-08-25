@@ -7,6 +7,11 @@ use Illuminate\Http\Request;
 
 class IndexController extends Controller
 {
+    public function __construct()
+    {
+        $this->middleware('admin', ['only' => ['create', 'edit', 'update', 'destroy', 'store']]);
+    }
+
     /**
      * Display a listing of the resource.
      *
@@ -59,7 +64,9 @@ class IndexController extends Controller
      */
     public function show($id)
     {
-        //
+        $content = Content::findOrFail($id);
+
+        return view('content.content', compact('content'));
     }
 
     /**
@@ -97,6 +104,15 @@ class IndexController extends Controller
         $content->delete();
         
         return redirect('contents')->with('message', 'Content deleted successfully!');
+    }
+
+    public function getCalendar()
+    {
+        $content = Content::where('slug', 'LIKE', '%calendar%')->get()[0];
+
+        //dd($content);
+
+        return view('partials.calendar', compact('content'));
     }
 
     public function validateRequest()
