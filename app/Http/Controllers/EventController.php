@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Event;
+use App\User;
 use Illuminate\Http\Request;
+use App\Notifications\NewEvent;
 use Illuminate\Pagination\Paginator;
 
 class EventController extends Controller
@@ -43,7 +45,7 @@ class EventController extends Controller
     {
         $this->validateRequest();
 
-        Event::create([
+        $event = Event::create([
             'title' => request('title'),
             'description' => request('description'),
             'startDate' => request('startDate'),
@@ -51,7 +53,9 @@ class EventController extends Controller
             'sponsor' => request('sponsor'),
         ]);
 
-        return redirect('\events')->with('message', 'Event added successfully!');
+        $this->notifyUsers($event);
+
+        return redirect('events')->with('message', 'Event added successfully!');
     }
 
     /**
@@ -88,8 +92,9 @@ class EventController extends Controller
     public function update(Request $request, Event $event)
     {
         $event->Update($this->validateRequest());
+        $this->notifyUsers($event);
 
-        return redirect('\events')->with('message', 'Event updated successfully!');
+        return redirect('events')->with('message', 'Event updated successfully!');
     }
 
     /**
@@ -98,24 +103,31 @@ class EventController extends Controller
      * @param  \App\Event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy()
+    public function destroy(Event $event)
     {
-        $id = request('id');
-        $event = Event::findOrFail($id);
-
         $event->delete();
         
-        return redirect('\events')->with('message', 'Event deleted successfully!');
+        return redirect('events')->with('message', 'Event deleted successfully!');
     }
 
     public function validateRequest()
     {
         return request()->validate([
             'title' => 'required|min:3',
-            'description' => 'required|min:5',
+            'description' => 'required|min:25',
             'startDate' => 'date',
             'endDate' => 'nullable|date',
             'sponsor' => 'nullable'
         ]);
+    }
+
+    public function notifyUsers($event)
+    {
+        $users = User::get();
+
+        foreach ($users as $user)
+        {
+            $user->notify(new NewEvent($event));
+        }  
     }
 }
