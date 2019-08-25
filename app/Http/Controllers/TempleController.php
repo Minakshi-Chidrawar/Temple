@@ -6,6 +6,7 @@ use Mail;
 use App\Image;
 use App\Album;
 use App\Event;
+use App\Content;
 use Carbon\Carbon;
 use App\Mail\ContactUs;
 use Illuminate\Http\Request;
@@ -20,13 +21,13 @@ class TempleController extends Controller
         $event = Event::where('startDate', '>', $date)->orderBy('startDate', 'asc')
                         ->first();
 
-        //dd($event);
+        $content = Content::where('slug', 'LIKE', '%timing%')->get()[0];
 
         $gallery = Album::with('images')
                             ->orderBy('created_at', 'desc')
                             ->first();
 
-        return view('temple.index', compact('event', 'gallery'));
+        return view('temple.index', compact('event', 'gallery', 'content'));
     }
 
     public function aboutTemple()
