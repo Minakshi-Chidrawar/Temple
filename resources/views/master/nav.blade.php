@@ -4,6 +4,7 @@
         <span class="navbar-toggler-icon"></span>
     </button>
     <div class="collapse navbar-collapse" id="navbarText">
+        <!-- Left Side Of Navbar -->
         <ul class="navbar-nav mr-auto">
             <li class="nav-item active">
                 <a class="nav-link" href="{{route('main')}}">Home <span class="sr-only">(current)</span></a>
@@ -15,7 +16,7 @@
                 <a class="nav-link" href="{{route('inTempleActivities')}}">Priest Services</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="events.html">News & Events</a>
+                <a class="nav-link" href="{{route('events')}}">News & Events</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{route('gallery')}}">Gallery</a>
