@@ -60,6 +60,15 @@ a {
     box-shadow: 0px 1px 6px rgba(0, 0, 0, 0.176);
 }
 
+.bs-callout > h4 {
+  color: #7b0d0d;  
+}
+
+.email {
+  color: #151556;
+  font-weight: 800;
+  font-size: 18px;
+}
 h1 {
   color: #7b0d0d;
 }
@@ -72,6 +81,9 @@ h5 {
 
 .font-color {
   color: #721c24;
+}
+
+.size {
   font-family: 'Roboto', cursive;
   font-size: 14px;
 }
