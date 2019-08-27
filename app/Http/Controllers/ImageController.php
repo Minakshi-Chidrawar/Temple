@@ -18,6 +18,7 @@ class ImageController extends Controller
         $this->middleware('admin', ['only' => ['index', 'addImage',
             'destroy', 'store']]);
     }
+    
     public function index()
     {
         $images = Image::get();
