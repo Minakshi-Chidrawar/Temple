@@ -16,10 +16,10 @@
 
                             <div class="form-group">
                                 <label for="album">Name of Album</label>
-                                <input type="text" name="album" class="form-control">
+                                <input type="text" name="album" class="form-control" required>
                             </div>
                             <div class="input-group control-group add-more-button">
-                                <input type="file" name="image[]" class="form-control" id="image" accept="image/*">
+                                <input type="file" name="image[]" class="form-control" id="image" accept="image/*" required>
                                 <div class="input-group-btn">
                                     <button class="btn btn-success btn-add-more" type="button">Add</button>
                                 </div>
