@@ -39,7 +39,8 @@
                             <img alt="" src="https://www.paypalobjects.com/en_GB/i/scr/pixel.gif" width="1" height="1">
                         </form>
                     </li>
-                    <li type="a">easyfundraising: <a href="{{route('easyFundRaising')}}" title="easyfundraising"><b><u>Procedure</u></b></a></li>
+                    <li type="a">easyfundraising: <a href="https://www.easyfundraising.org.uk/causes/asmt/"
+                        target="_blank" title="easyfundraising"><b><u>Procedure</u></b></a></li>
                 </ul>
             </p>
             <p>
