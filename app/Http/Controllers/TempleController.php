@@ -17,9 +17,7 @@ class TempleController extends Controller
 
     public function index()
     {
-        $date = Carbon::now()->toDateString();
-        $event = Event::where('startDate', '>', $date)->orderBy('startDate', 'asc')
-                        ->first();
+        $event = $this->upComingEvent();
 
         $content = Content::where('slug', 'LIKE', '%timing%')->get()[0];
 
@@ -107,5 +105,12 @@ class TempleController extends Controller
         Mail::to("minakshichidrawar@gmail.com")->send(new ContactUs($request));
 
         return back()->with('success', 'Thanks for contacting us!');
+    }
+
+    public function upComingEvent()
+    {
+        $date = Carbon::now()->toDateString();
+        return Event::where('startDate', '>', $date)->orderBy('startDate', 'asc')
+                        ->first();
     }
 }
