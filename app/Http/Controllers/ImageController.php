@@ -66,15 +66,10 @@ class ImageController extends Controller
         return redirect()->back()->with('message', 'Image/s added successfully!');
     }
 
-    public function destroy()
+    public function destroy(Image $image)
     {
-        $id = request('id');
-
-        $image = Image::findOrFail($id);
-        $filename = $image->name;
-
+        File::delete($image->name);
         $image->delete();
-        File::delete($filename);
         
         return redirect()->back()->with('message', 'Image deleted successfully!');
     }
