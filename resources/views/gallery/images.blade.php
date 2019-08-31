@@ -49,10 +49,12 @@
                                     </button>
                                 </div>
                                 <div class="modal-body">
-                                    Do you want to delete?
+                                    Do you want to delete the image 
+                                    <img src="{{ asset('/'.$image->name) }}" alt="$image->name" style="width: 50px; height: 50px;">?
                                 </div>
                                 <div class="modal-footer">
-                                    <form action="{{ route('image.delete') }}" method="POST">
+                                    <form action="{{ route('image.delete', $image->id) }}" method="POST">
+                                        @method('DELETE')
                                         @csrf
                                         <input type="hidden" name="id" value="{{ $image->id }}">
                                         <button class="btn btn-danger" type="submit">Delete</button>
