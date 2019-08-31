@@ -16,7 +16,7 @@
                 <a class="nav-link" href="{{route('inTempleActivities')}}">Priest Services</a>
             </li>
             <li class="nav-item">
-                <a class="nav-link" href="events.html">News & Events</a>
+                <a class="nav-link" href="{{route('events')}}">News & Events</a>
             </li>
             <li class="nav-item">
                 <a class="nav-link" href="{{route('gallery')}}">Gallery</a>
