@@ -29,6 +29,8 @@ Route::get('/gallery/images/{id}','ImageController@show');
 Route::post('/album/image','ImageController@addImage')->name('album.image');
 Route::delete('/image/{image}','ImageController@destroy')->name('image.delete');
 
+Route::get('/homeImages','HomeUploadImageController@index')->name('homeImages');
+
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
