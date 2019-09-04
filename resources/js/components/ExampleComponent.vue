@@ -2,7 +2,7 @@
     <div class="container">
         <div class="row justify-content-center mb-3" ref="imageUpload">
             <div class="col-12 bg-dark text-white rounded my-2 py-3 text-center">
-                <h2>DROP IMAGE(S) HERE</h2>
+                <h2 style="color:white">DROP IMAGE(S) HERE</h2>
             </div>
         </div>
     </div>
@@ -20,7 +20,7 @@
 
         mounted() {
             this.dropzone = new Dropzone(this.$refs.imageUpload, {
-                url: '/api/homeImages'
+                url: '/api/homeImages',
             });
         }
     }
