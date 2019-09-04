@@ -34,7 +34,10 @@ class HomeUploadImageController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        dd($request);
+        $images = $request->file(file);
+
+        dd($images);
     }
 
     /**
