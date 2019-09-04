@@ -1,13 +1,13 @@
 <div class="container">
     <div class="subPages home-gallery">
         @if (!(empty($gallery)))
-        <h5 class="font-weight-bold">{{ $gallery->name }} Gallery</h5>
+        <h5 class="font-weight-bold">{{ $gallery->imageName }} Gallery</h5>
         <a href="gallery/images/{{ $gallery->id }}">
             <div id="carouselExampleFade" class="carousel slide carousel-fade" data-ride="carousel">
             <div class="carousel-inner">
                 @foreach($gallery->images as $image)
                 <div class="text-center carousel-item @if($loop->first) active @endif">
-                    <img class="d-block mx-auto img-fluid" src="{{ asset('/'. $image->name) }}" alt="{{ $image->name }}">
+                    <img class="d-block mx-auto img-fluid" src="{{ asset('/'. $image->imageName) }}" alt="{{ $image->imageName }}">
                     <div class="carousel-caption d-none d-lg-block" style="margin-top: 90%;">
                         <h6>{{ $gallery->name }}</h6>
                     </div>
