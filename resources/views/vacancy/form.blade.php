@@ -47,7 +47,7 @@
     <div class="form-group col-6">
         <label for="closingDate">Closing Date:</label>
         <input type="date" name="closingDate" class="form-control {{ $errors->has('closingDate') ? ' is-invalid' : ''}}"
-    value="{{ old('closingDate') ?? $vacancy->closingDate }}"/>
+    value="{{ old('closingDate') ?? $vacancy->closingDate }}" required/>
     </div>
     <div>{{ $errors->first('closingDate') }}</div>
     
