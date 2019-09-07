@@ -7,11 +7,11 @@ use Illuminate\Http\Request;
 
 class VacancyController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    public function __construct()
+    {
+        $this->middleware('admin', ['only' => ['update', 'destroy', 'store']]);
+    }
+
     public function index()
     {
         $vacancies = Vacancy::get();
@@ -58,7 +58,7 @@ class VacancyController extends Controller
             'note' => request('note'),
         ]);
 
-        return redirect('\vacancies')->with('message', 'Vacancy added successfully!');
+        return redirect('vacancies')->with('message', 'Vacancy added successfully!');
     }
 
     /**
