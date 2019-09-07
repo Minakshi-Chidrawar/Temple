@@ -48,6 +48,12 @@
                 @include('vacancy.deleteVacancy')
                 <!-- End of the Delete Modal -->
             @endforeach
+        @else
+            <div class="card">
+                <div class="card-body">
+                    <h3 class="text-justified-center">There is no Vacancy!</h3>
+                </div>
+            </div>
         @endif
     </div>
 @endsection
