@@ -38,14 +38,7 @@ class VacancyController extends Controller
      */
     public function store(Request $request)
     {
-        $this->validate($request, [
-            'title' => 'required|min:3',
-            'role' => 'nullable',
-            'description' => 'required|min:5',
-            'postDate' => 'date',
-            'closingDate' => 'nullable|date',
-            'note' => 'nullable',
-        ]);
+        $this->validateRequest();
 
         Vacancy::create([
             'title' => request('title'),
@@ -94,7 +87,7 @@ class VacancyController extends Controller
     {
         $vacancy->update($this->validateRequest());
 
-        return redirect('\vacancies')->with('message', 'Vacancy updated Successfully!');
+        return redirect('vacancies')->with('message', 'Vacancy updated Successfully!');
     }
 
     /**
@@ -107,7 +100,7 @@ class VacancyController extends Controller
     {
         $vacancy->delete();
 
-        return redirect('\vacancies');
+        return redirect('vacancies');
     }
 
     public function validateRequest()
