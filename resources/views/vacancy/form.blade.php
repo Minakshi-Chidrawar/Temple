@@ -2,7 +2,7 @@
     <label for="title">Title:</label>
     <input type="text" name="title" placeholder="e.g. Vacancy for Priest/ Volunteer required"
         class="form-control {{ $errors->has('title') ? ' is-invalid' : ''}}"
-        value="{{ old('title') ?? $vacancy->title }}" />
+        value="{{ old('title') ?? $vacancy->title }}" required minlength="3" />
 </div>
 @if ($errors->has('title'))
     <span class="invalid-feedback" role="alert">
@@ -24,7 +24,7 @@
 <div class="form-group">
     <label for="description">Description:</label>
     <textarea name="description" class="form-control summernote {{ $errors->has('description') ? ' is-invalid' : ''}}"
-    value="{{ old('description') }}" rows="10" >{{ old('description') ?? $vacancy->description }}</textarea>
+    value="{{ old('description') }}" rows="10" required >{{ old('description') ?? $vacancy->description }}</textarea>
 </div>
 @if ($errors->has('description'))
     <span class="invalid-feedback" role="alert">
@@ -36,7 +36,7 @@
     <div class="form-group col-6">
         <label for="postDate">Start Date:</label>
         <input type="date" name="postDate" class="form-control {{ $errors->has('postDate') ? ' is-invalid' : ''}}"
-    value="{{ old('postDate') ?? $vacancy->postDate }}"/>
+    value="{{ old('postDate') ?? $vacancy->postDate }}" required/>
     </div>
     @if ($errors->has('postDate'))
         <span class="invalid-feedback" role="alert">
