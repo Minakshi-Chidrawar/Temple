@@ -18,11 +18,9 @@
                             <li><a href="{{ route('event.store') }}">Add Event</a></li>
                             <li><a href="{{ route('vacancy.store') }}">Add a Vacancy</a></li>
                             <li><a href="{{ route('album.store') }}">Create Album</a></li>
-                            <li><a href="{{ route('content.store') }}">Add Calendar</a></li>
+                            <li><a href="{{ route('contents') }}">Timing & Calendar</a></li>
                         </ul>
                     </div>
-                    
-
                 </div>
             </div>
         </div>
