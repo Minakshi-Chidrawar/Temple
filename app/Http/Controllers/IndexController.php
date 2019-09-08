@@ -100,7 +100,6 @@ class IndexController extends Controller
      */
     public function destroy(Content $content)
     {
-        //dd($content);
         $content->delete();
         
         return redirect('contents')->with('message', 'Content deleted successfully!');
@@ -109,8 +108,6 @@ class IndexController extends Controller
     public function getCalendar()
     {
         $content = Content::where('slug', 'LIKE', '%calendar%')->get()[0];
-
-        //dd($content);
 
         return view('partials.calendar', compact('content'));
     }
