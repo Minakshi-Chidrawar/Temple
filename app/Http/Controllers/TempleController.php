@@ -14,7 +14,6 @@ use App\Http\Controllers\Controller;
 
 class TempleController extends Controller
 {
-
     public function index()
     {
         $event = $this->upComingEvent();
@@ -25,7 +24,9 @@ class TempleController extends Controller
                             ->orderBy('created_at', 'desc')
                             ->first();
 
-        return view('temple.index', compact('event', 'gallery', 'content'));
+        $carousel = Album::with('images')->where('name', 'home')->get()[0];
+
+        return view('temple.index', compact('event', 'gallery', 'content', 'carousel'));
     }
 
     public function aboutTemple()
