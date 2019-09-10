@@ -22,15 +22,20 @@
                         <input type="hidden" name="id" value="{{ $gallery->id }}" class="form-control">
                     </div>
                     <div class="input-group control-group add-more-button">
-                        <input type="file" name="image[]" class="form-control" id="image" required>
+                        <input type="file" name="image[]" class="form-control" id="image">
                         <div class="input-group-btn">
                             <button class="btn btn-success btn-add-more" type="button">Add</button>
                         </div>
+                        @if ($errors->has('image'))
+                            <span class="invalid-feedback" role="alert">
+                                <strong>{{ $errors->first('image') }}</strong>
+                            </span>
+                        @endif
                     </div>
 
                     <div class="copy">
                         <div class="input-group control-group mt-4 remove-button">
-                            <input type="file" name="image[]" class="form-control" id="image" required>
+                            <input type="file" name="image[]" class="form-control" id="image">
                             <div class="input-group-btn">
                                 <button class="btn btn-danger remove" type="button">Remove</button>
                             </div>
