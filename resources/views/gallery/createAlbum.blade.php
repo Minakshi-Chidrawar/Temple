@@ -16,7 +16,7 @@
 
                             <div class="form-group">
                                 <label for="album">Name of Album</label>
-                                <input type="text" name="album" class="form-control" required>
+                                <input type="text" name="album" class="form-control" value="{{ old('album') }}" required minlength="3">
                             </div>
                             <div class="input-group control-group add-more-button">
                                 <input type="file" name="image[]" class="form-control" id="image" accept="image/*" required>
