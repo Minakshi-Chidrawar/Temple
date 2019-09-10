@@ -18,8 +18,14 @@
                                 <label for="album">Name of Album</label>
                                 <input type="text" name="album" class="form-control" value="{{ old('album') }}" required minlength="3">
                             </div>
+                            @if ($errors->has('album'))
+                                <span class="invalid-feedback" role="alert">
+                                    <strong>{{ $errors->first('album') }}</strong>
+                                </span>
+                            @endif
+                            
                             <div class="input-group control-group add-more-button">
-                                <input type="file" name="image[]" class="form-control" id="image" accept="image/*" required>
+                                <input type="file" name="image[]" class="form-control" id="image" accept="image/*">
                                 <div class="input-group-btn">
                                     <button class="btn btn-success btn-add-more" type="button">Add</button>
                                 </div>
@@ -27,7 +33,7 @@
 
                             <div class="copy">
                                 <div class="input-group control-group mt-4 remove-button">
-                                    <input type="file" name="image[]" class="form-control" id="image" accept="image/*" required>
+                                    <input type="file" name="image[]" class="form-control" id="image" accept="image/*">
                                     <div class="input-group-btn">
                                         <button class="btn btn-danger remove" type="button">Remove</button>
                                     </div>
