@@ -27,7 +27,7 @@
 
                             <div class="copy">
                                 <div class="input-group control-group mt-4 remove-button">
-                                    <input type="file" name="image[]" class="form-control" id="image" accept="image/*">
+                                    <input type="file" name="image[]" class="form-control" id="image" accept="image/*" required>
                                     <div class="input-group-btn">
                                         <button class="btn btn-danger remove" type="button">Remove</button>
                                     </div>
