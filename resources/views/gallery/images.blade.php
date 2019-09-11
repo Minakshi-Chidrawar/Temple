@@ -29,8 +29,11 @@
             @foreach($gallery->images as $image)
                 <div class="col-sm-4">
                     <div class="item">
-                        <img src="{{ asset('/'.$image->thumbnail) }}" class="img-thumbnail">
+                        <a href="#" data-toggle="modal" data-target="#image{{ $image->id }}">
+                            <img src="{{ asset('/'.$image->thumbnail) }}" class="img-thumbnail">
+                        </a>
                     </div>
+                    @include('gallery.viewImage')
 
                     <!-- Button trigger modal -->
                     @if(Auth::check() && Auth::user()->role == 'admin')
@@ -38,6 +41,7 @@
                         Delete
                         </button>
                     @endif
+
                     <!-- Delete Modal -->
                     @include('gallery.deleteModal')
                     <!-- End of the Delete Modal -->
