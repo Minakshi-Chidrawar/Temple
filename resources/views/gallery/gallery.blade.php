@@ -33,9 +33,9 @@
                             @if(empty($item->images[0]))
                                 <img src="images/Mataji.png" class="img-thumbnail">
                             @else
-                                <img src="{{ asset('/'.$item->images[0]->name) }}" class="img-thumbnail">
+                                <img src="{{ asset('/'.$item->images[0]->thumbnail) }}" class="img-thumbnail">
                             @endif
-                            <a href="gallery/images/{{ $item->id }}" class="centered">{{ $item->name }}</a>
+                            <a href="gallery/images/{{ $item->id }}" class="centered">{{ $item->thumbnail }}</a>
                         </div>
                     </a>
                 </div>
