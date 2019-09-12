@@ -1,6 +1,6 @@
 <div class="container">
   <div class="row"> 
-    <div class="col-6  mt-5">
+    <div class="col-6 mt-5">
         @if(!(empty($event)))
         <ul class="list-unstyled">
           <li>
