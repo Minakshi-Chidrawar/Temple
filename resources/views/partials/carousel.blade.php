@@ -1,9 +1,9 @@
-<div class="col-md-5 mt-2">
+<div class="col-md-5 mt-4">
     <div id="carouselExampleControls" class="carousel slide" data-ride="carousel">
         <div class="carousel-inner">
             @foreach($carousel->images as $image)
             <div class="text-center carousel-item @if($loop->first) active @endif">
-                <img class="d-block mx-auto img-fluid" src="{{ asset('/'. $image->name) }}" alt="{{ $image->name }}">
+                <img class="d-block carousel-img" src="{{ asset('/'. $image->original) }}" alt="{{ $image->thumbnail }}">
                 <div class="carousel-caption d-none d-lg-block" style="margin-top: 90%;">
                     <h6>{{ $carousel->name }}</h6>
                 </div>
