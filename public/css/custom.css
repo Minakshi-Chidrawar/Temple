@@ -10,6 +10,10 @@
     width: 100%;
 }
 
+.nav-dark {
+  background-color: #721c24!important;
+}
+
 h2 {
   color: #721c24;
   font-family: 'Cardo', serif;;
