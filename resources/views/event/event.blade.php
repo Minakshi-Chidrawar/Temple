@@ -4,7 +4,9 @@
     <div class="container mt-4">
         <div class="">
             <a href="{{ route('events') }}"><button type="submit" class="btn btn-success">Back to the Events</button></a>
-            <a href="{{ route('event.edit', [$event->id]) }}"><button type="button"  class="btn btn-danger">Edit</button></a>
+	    @if(Auth::check() && Auth::user()->role == 'admin')
+                <a href="{{ route('event.edit', [$event->id]) }}"><button type="button"  class="btn btn-danger">Edit</button></a>
+	    @endif
         </div>
         
         <div class="card mt-4">
