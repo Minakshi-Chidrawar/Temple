@@ -114,7 +114,7 @@ class EventController extends Controller
     {
         return request()->validate([
             'title' => 'required|min:3',
-            'description' => 'required|min:25',
+            'description' => 'required',
             'startDate' => 'date',
             'endDate' => 'nullable|date',
             'sponsor' => 'nullable'
