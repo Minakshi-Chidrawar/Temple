@@ -108,7 +108,7 @@ class VacancyController extends Controller
         return request()->validate([
             'title' => 'required|min:3',
             'role' => 'nullable',
-            'description' => 'required|min:5',
+            'description' => 'required|min:3',
             'postDate' => 'date',
             'closingDate' => 'nullable|date',
             'note' => 'nullable',
