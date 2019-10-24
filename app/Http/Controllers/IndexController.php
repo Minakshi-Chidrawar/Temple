@@ -116,8 +116,8 @@ class IndexController extends Controller
     {
         return request()->validate([
             'title' => 'required|min:3',
-            'description' => 'required|min:25',
-            'slug' => 'required|min:5',
+            'description' => 'required',
+            'slug' => 'required|min:3',
         ]);
     }
 }
