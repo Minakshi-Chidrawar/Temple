@@ -34,13 +34,22 @@
                                 <img src="images/Mataji.png" class="img-thumbnail">
                             @else
                                 <figure class="figure">
+                                <figcaption class="figure-caption text-center gallery-name">{{ ucfirst($item->name) }}</figcaption>
                                     <img src="{{ asset('/'.$item->images[0]->thumbnail) }}" class="img-thumbnail">
-                                    <figcaption class="figure-caption text-right gallery-name">{{ ucfirst($item->name) }}</figcaption>
                                 </figure>
                             @endif
                             <a href="gallery/images/{{ $item->id }}" class="centered">{{ $item->thumbnail }}</a>
                         </div>
                     </a>
+                    @if(Auth::check() && Auth::user()->role == 'admin')
+                        <button type="button" class="btn btn-danger text-left" data-toggle="modal" data-target="#exampleModal{{ $item->id }}">
+                            Delete
+                        </button>
+                    @endif
+
+                    <!-- Delete Modal -->
+                        @include('gallery.deleteGallery')
+                    <!-- End of the Delete Modal -->
                 </div>
             @endforeach
         </div>
