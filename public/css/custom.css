@@ -172,7 +172,7 @@ div-table4 {
   top: 0;
   position: relative;
   overflow: hidden;
-  margin-top: 50px;
+  margin-top: 25px;
 }
 
 .item img {
@@ -181,8 +181,8 @@ div-table4 {
 }
 
 .item img:hover {
-  -webkit-transform: scale(1.2);
-  transform: scale(1.2);
+  -webkit-transform: scale(1.1);
+  transform: scale(1.1);
 }
 
 .centered {
