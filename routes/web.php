@@ -25,6 +25,8 @@ Route::post('/contact', ['as' => 'contact.store', 'uses' => 'TempleController@st
 Route::get('/album','ImageController@index');
 Route::post('/album','ImageController@store')->name('album.store');
 Route::get('/gallery','ImageController@gallery')->name('gallery');
+Route::delete('/gallery/{album}', 'GalleryController@destroy')->name('gallery.delete');
+
 Route::get('/gallery/images/{id}','ImageController@show');
 Route::post('/album/image','ImageController@addImage')->name('album.image');
 Route::delete('/image/{image}','ImageController@destroy')->name('image.delete');
