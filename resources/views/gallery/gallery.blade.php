@@ -34,7 +34,7 @@
                                 <img src="images/Mataji.png" class="img-thumbnail">
                             @else
                                 <figure class="figure">
-                                <figcaption class="figure-caption text-center gallery-name">{{ ucfirst($item->name) }}</figcaption>
+                                    <figcaption class="figure-caption text-center gallery-name">{{ ucfirst($item->name) }}</figcaption>
                                     <img src="{{ asset('/'.$item->images[0]->thumbnail) }}" class="img-thumbnail">
                                 </figure>
                             @endif
