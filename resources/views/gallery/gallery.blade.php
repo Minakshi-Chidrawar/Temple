@@ -33,7 +33,10 @@
                             @if(empty($item->images[0]))
                                 <img src="images/Mataji.png" class="img-thumbnail">
                             @else
-                                <img src="{{ asset('/'.$item->images[0]->thumbnail) }}" class="img-thumbnail">
+                                <figure class="figure">
+                                    <img src="{{ asset('/'.$item->images[0]->thumbnail) }}" class="img-thumbnail">
+                                    <figcaption class="figure-caption text-right">{{ ucfirst($item->name) }}</figcaption>
+                                </figure>
                             @endif
                             <a href="gallery/images/{{ $item->id }}" class="centered">{{ $item->thumbnail }}</a>
                         </div>
