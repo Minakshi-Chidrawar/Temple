@@ -35,7 +35,7 @@
                             @else
                                 <figure class="figure">
                                     <img src="{{ asset('/'.$item->images[0]->thumbnail) }}" class="img-thumbnail">
-                                    <figcaption class="figure-caption text-right">{{ ucfirst($item->name) }}</figcaption>
+                                    <figcaption class="figure-caption text-right gallery-name">{{ ucfirst($item->name) }}</figcaption>
                                 </figure>
                             @endif
                             <a href="gallery/images/{{ $item->id }}" class="centered">{{ $item->thumbnail }}</a>
