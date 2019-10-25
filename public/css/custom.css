@@ -224,3 +224,9 @@ div-table4 {
   font-size: 16px;
   color: #7b0d0d;
 }
+
+.gallery-name {
+  font-size: 24px;
+  color: #7b0d0d;
+  font-weight: bolder;
+}
