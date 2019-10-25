@@ -6,8 +6,6 @@
                 <div class="alert alert-success">{{ Session::get('message')}}</div>
         @endif
 
-        <h1>{{ $gallery->name }}</h1>
-
         <div class="row">
             <div class="btn-toolbar" role="toolbar" aria-label="Toolbar with button groups">
                 @if(Auth::check() && Auth::user()->role == 'admin')
@@ -29,6 +27,7 @@
             @foreach($gallery->images as $image)
                 <div class="col-sm-4">
                     <div class="item">
+                        <h3>{{ ucfirst($gallery->name) }}</h3>
                         <a href="#" data-toggle="modal" data-target="#image{{ $image->id }}">
                             <img src="{{ asset('/'.$image->thumbnail) }}" class="img-thumbnail">
                         </a>
