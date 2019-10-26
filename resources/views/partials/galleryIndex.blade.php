@@ -8,7 +8,7 @@
                     <div class="text-center carousel-item @if($loop->first) active @endif">
                         <img class="d-block mx-auto img-fluid" src="{{ asset('/'. $image->thumbnail) }}" alt="{{ $image->thumbnail }}">
                         <div class="carousel-caption d-none d-lg-block" style="margin-top: 90%;">
-                            <h6>{{ $gallery->name }}</h6>
+                            <h6>{{ ucfirst($gallery->name) }}</h6>
                         </div>
                     </div>
                     @endforeach
