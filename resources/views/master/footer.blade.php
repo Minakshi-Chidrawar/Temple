@@ -24,16 +24,16 @@
 
           <ul class="list-unstyled">
             <li>
-                <a href="{{route('aboutTemple')}}">About Temple</a>
+                <a href="{{route('aboutTemple')}}" class=" link-blue">About Temple</a>
             </li>
             <li>
-                <a href="{{route('horoscope')}}">Horoscope</a>
+                <a href="{{route('horoscope')}}" class=" link-blue">Horoscope</a>
             </li>
             <li>
-                <a href="{{route('donation')}}">Donations</a>
+                <a href="{{route('donation')}}" class=" link-blue">Donations</a>
             </li>
             <li>
-                <a href="{{route('contact')}}">Contact us</a>
+                <a href="{{route('contact')}}" class=" link-blue">Contact us</a>
             </li>
           </ul>
 
@@ -75,13 +75,13 @@
           <ul class="list-unstyled">
             <li>              
               <a href="https://www.facebook.com/adhyashakti.mataji" class="facebook">
-                <i class="fa fa-facebook-square"></i>
+                <i class="fa fa-facebook-square link-blue"></i>
               </a>
               <a href="https://twitter.com/Matajitempleuk" class="twitter">
-                <i class="fa fa-twitter-square"></i>
+                <i class="fa fa-twitter-square link-blue"></i>
               </a>
               <a href="https://adhyashaktimatajitemple.wordpress.com" class="wordpress">
-                <i class="fa fa-wordpress"></i>
+                <i class="fa fa-wordpress link-blue"></i>
               </a>
             </li>
             <li>
