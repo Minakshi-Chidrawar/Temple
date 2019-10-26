@@ -230,3 +230,11 @@ div-table4 {
   color: #7b0d0d;
   font-weight: bolder;
 }
+
+.link-blue {
+  color: #141433;
+}
+
+.link-blue:hover {
+  color: #141433;
+}
