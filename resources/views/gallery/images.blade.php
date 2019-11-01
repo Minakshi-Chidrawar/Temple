@@ -24,10 +24,14 @@
         </div>
 
         <div class="row">
+            <div class="col-sm-4 mt-3 mb-r">
+                <h3>{{ ucfirst($gallery->name) }}</h3>
+            </div>
+        </div>
+        <div class="row">
             @foreach($gallery->images as $image)
                 <div class="col-sm-4">
                     <div class="item">
-                        <h3>{{ ucfirst($gallery->name) }}</h3>
                         <a href="#" data-toggle="modal" data-target="#image{{ $image->id }}">
                             <img src="{{ asset('/'.$image->thumbnail) }}" class="img-thumbnail">
                         </a>
