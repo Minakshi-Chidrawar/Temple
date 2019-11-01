@@ -9,7 +9,8 @@ class Image extends Model
 {
     protected $fillable = ['original', 'thumbnail', 'album_id'];
 
-    public function albums(){
+    public function album()
+    {
         return $this->belongsTo(Album::class);
     }
 }
