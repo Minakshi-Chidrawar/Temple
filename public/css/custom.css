@@ -238,3 +238,7 @@ div-table4 {
 .link-blue:hover {
   color: #141433;
 }
+
+.mb-r {
+  margin-bottom: -30px;
+}
