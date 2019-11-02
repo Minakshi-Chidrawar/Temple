@@ -196,8 +196,8 @@ div-table4 {
   }
 
 .img-thumbnail {
-  border: 0px;
-  border-radius: 0px;
+  border: 1px #7b0d0d solid;
+  border-radius: 15px;
   height: 250px;
   width: 250px;
 }
