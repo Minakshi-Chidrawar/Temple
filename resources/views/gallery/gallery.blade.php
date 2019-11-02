@@ -27,7 +27,7 @@
 
         <div class="row">
             @foreach($gallery as $item)
-                <div class="col-sm-4">
+                <div class="container col-sm-4">
                     <a href="gallery/images/{{ $item->id }}">
                         <div class="item">
                             @if(empty($item->images[0]))
@@ -53,6 +53,7 @@
                 </div>
             @endforeach
         </div>
+
         <div class="panel-heading mt-5 pagination" style="">
             {{$gallery->links()}}
         </div>
