@@ -20,10 +20,22 @@ class GalleryController extends Controller
 
     public function destroy(Album $album)
     {
-        dd($album);
-/*         File::delete($image->name);
-        $image->delete(); */
+        $images = Album::findOrFail($album->id)->images;
+        $this->deleteFromImages($images);
+
+        $album->delete();
         
         return redirect()->back()->with('message', 'Gallery deleted successfully!');
+    }
+
+    public function deleteFromImages($images)
+    {
+        foreach($images as $image)
+        {
+            File::delete($image->thumbnail);
+            File::delete($image->original);
+
+            $image->delete();
+        }
     }
 }
