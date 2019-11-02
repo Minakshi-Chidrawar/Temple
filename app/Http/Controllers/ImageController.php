@@ -68,7 +68,9 @@ class ImageController extends Controller
 
     public function destroy(Image $image)
     {
-        File::delete($image->name);
+        File::delete($image->thumbnail);
+        File::delete($image->original);
+
         $image->delete();
         
         return redirect()->back()->with('message', 'Image deleted successfully!');
