@@ -3,23 +3,22 @@
 @section('content')
     <div class="container mt-4">
         <h1>Gallery</h1>
-        <div class="row">
+        <div class="row mb-2 ml-1">
             @if(Auth::check() && Auth::user()->role == 'admin')
-            <button class="btn btn-dark"> <a href="{{ route('album.store') }}">
+            <button class="btn nav-dark"> <a href="{{ route('album.store') }}">
                 Add Gallery</a>
             </button>
             @endif
-
+        </div>
+        <div class="row">
             <div class="col-md-5">
                 <form action="{{ route('results') }}" method="get" role="search">
                     @csrf
-                    <div class="input-group custom-search-form">
+                    <div class="input-group">
                         <input type="text" class="form-control" id="search" name="search" placeholder="Search for the album">
-                        <span class="input-group-btn">
-                            <button class="btn btn-primary" type="submit">
-                                <i class="fa fa-display fa-search"></i>
-                            </button>
-                        </span>
+                        <div class="input-group-append">
+                            <button class="btn btn-success" type="submit">Go</button>
+                        </div>
                     </div>
                 </form>
 
