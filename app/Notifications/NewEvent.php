@@ -44,6 +44,7 @@ class NewEvent extends Notification
     {
         $eventDate = Carbon::parse($this->event->startDate)->isoFormat('MMM Do, YY');
         return (new MailMessage)
+                    ->from('templemataji@gmail.com', 'Adhya Shakti Mataji Temple')
                     ->greeting('Dear ' . $notifiable->name)
                     ->subject($this->event->title . ' event at the temple')
                     ->line(' ')
