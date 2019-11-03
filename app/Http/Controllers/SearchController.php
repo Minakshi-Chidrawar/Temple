@@ -9,16 +9,14 @@ use Illuminate\Support\Facades\DB;
 
 class SearchController extends Controller
 {
-    public function search(Request $request){
-        
-        dd($$request);
-
+    public function search(Request $request)
+    {
         if($request->ajax()) {
             $data = Album::where('name', 'LIKE', '%' . $request->search . '%')
                 ->get();
             
             $output = '';
-            if (count($data)>0) {
+            if (count($data) > 0) {
                 $output = '<ul class="list-group" style="display: block; position: relative; z-index: 1">';
 
                 foreach ($data as $row){
@@ -44,14 +42,11 @@ class SearchController extends Controller
 
     public function results(Request $request)
     {
-        dd($request);
-
         $gallery = Album::where('name', 'like' , '%' . $request->search . '%')
                     ->with('images')
                     ->orderBy('created_at', 'desc')
                     ->paginate(12);
 
         return view('gallery.gallery', compact('gallery'));
-
     }
 }
