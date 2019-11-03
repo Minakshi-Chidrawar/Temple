@@ -11,10 +11,10 @@
             @endif
 
             <div class="col-md-5">
-                <form action="/search" method="POST" role="search">
+                <form action="{{ route('results') }}" method="get" role="search">
                     @csrf
                     <div class="input-group custom-search-form">
-                        <input type="text" class="form-control" name="search" placeholder="Search...">
+                        <input type="text" class="form-control" id="search" name="search" placeholder="Search for the album">
                         <span class="input-group-btn">
                             <button class="btn btn-primary" type="submit">
                                 <i class="fa fa-display fa-search"></i>
@@ -22,6 +22,9 @@
                         </span>
                     </div>
                 </form>
+
+                <div id="search_list"></div>  
+
             </div>
         </div>
 
@@ -58,4 +61,28 @@
             {{$gallery->links()}}
         </div>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            $('#search').on('keyup',function() {
+                var query = $(this).val();
+                $.ajax({
+                    url:"{{ route('search') }}",
+                    type:"GET",
+                    data:{'search':query},
+                    success:function (data) {
+                        $('#search_list').html(data);
+                    }
+                })
+            });
+
+            $(document).on('click', 'li', function(){
+                var value = $(this).text();
+                $('#search').val(value);
+                $('#search_list').html("");
+            });
+        });
+    </script>
 @endsection
