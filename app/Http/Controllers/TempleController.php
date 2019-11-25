@@ -103,7 +103,7 @@ class TempleController extends Controller
             'message' => 'required',
         ]);
 
-        Mail::to("minakshichidrawar@gmail.com")->send(new ContactUs($request));
+        Mail::to("jasmaicha@gmail.com")->send(new ContactUs($request));
 
         return back()->with('success', 'Thanks for contacting us!');
     }
