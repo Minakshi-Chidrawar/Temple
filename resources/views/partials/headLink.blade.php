@@ -15,6 +15,9 @@
 <script src="{{ asset('vendor/bootstrap/js/bootstrap.bundle.min.js') }}"></script>
 <script src="{{ asset('js/custom.js') }}"></script>
 
+<!-- Google ad -->
+<script data-ad-client="ca-pub-5882866390886861" async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
+
 <!-- include summernote css/js -->
 <link href="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.css" rel="stylesheet">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/summernote/0.8.12/summernote-bs4.js"></script>
