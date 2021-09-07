@@ -74,7 +74,7 @@
           <h5 class="font-weight-bold text-uppercase">Follow Us</h5>
           <ul class="list-unstyled">
             <li>              
-              <a href="https://www.facebook.com/adhyashakti.mataji" class="facebook">
+              <a href="https://www.facebook.com/AdhyaShaktiMataji07" class="facebook">
                 <i class="fa fa-facebook-square link-blue"></i>
               </a>
               <a href="https://twitter.com/Matajitempleuk" class="twitter">
